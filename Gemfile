@@ -21,3 +21,8 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'unicorn'
+end
