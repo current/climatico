@@ -1,5 +1,6 @@
 # language: pt
 
+@javascript
 Funcionalidade: Previsão do clima
 
   Para ter uma idéia geral do que carregar

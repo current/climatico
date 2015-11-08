@@ -6,6 +6,7 @@
 
 require 'cucumber/rails'
 require 'capybara/poltergeist'
+require 'forecast_io/testing'
 
 Capybara.javascript_driver = :poltergeist
 
@@ -53,9 +54,11 @@ end
 #     DatabaseCleaner.strategy = :transaction
 #   end
 #
+Before('@javascript') do
+  page.driver.browser.extensions = [File.expand_path("../geolocation.js", __FILE__)]
+end
 
 # Possible values are :truncation and :transaction
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
-
