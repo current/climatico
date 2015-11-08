@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  resources :locations
-  root to: 'locations#index'
+  resource :weathers
+  root to: 'weathers#show'
 end
