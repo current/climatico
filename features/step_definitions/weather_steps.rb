@@ -1,19 +1,19 @@
-Dado(/^que está (\d+) graus centigrados$/) do |temperature|
-  pending # express the regexp above with the code you wish you had
+Dado(/^que está (\d+) graus centigrados$/) do |value|
+  ForecastIO.temperature = value
 end
 
-Dado(/^que está com (\d+)% de probabilidade de chuva$/) do |rain|
-  pending # express the regexp above with the code you wish you had
+Dado(/^que está com (\d+)% de probabilidade de chuva$/) do |value|
+  ForecastIO.precipProbability = value
 end
 
-Dado(/^que está com (\d+) km de vento$/) do |wind|
-  pending # express the regexp above with the code you wish you had
+Dado(/^que está com (\d+) km de vento$/) do |value|
+  ForecastIO.windSpeed = value
 end
 
 Quando(/^eu acesso o aplicativo$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/'
 end
 
 Então(/^a recomendação é de roupas normais$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_content('roupas normais')
 end
