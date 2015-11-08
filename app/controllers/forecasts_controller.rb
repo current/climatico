@@ -1,4 +1,6 @@
 class ForecastsController < ApplicationController
+  layout false
+
   def show
     @forecast = ForecastIO.forecast \
       params[:latitude],
