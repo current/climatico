@@ -1,11 +1,15 @@
-%h1 Roupas normais
+%h1 Dicas
+
+%ul#tips
+  - @recomendation.tips.each do |tip|
+    %li= tip
 
 %dl
-  %dt Temperatura
-  %dd= @currently.temperature
+  %dt Temperatura atual (C)
+  %dd= @currently.apparentTemperature
 
   %dt Probabilidade de chuva
-  %dd= @currently.precipProbability
+  %dd= number_to_percentage(@currently.precipProbability * 100, precision: 0)
 
-  %dt Velocidade do vento
-  %dd= @currently.windSpeed
+  %dt Nuvens no céu
+  %dd= number_to_percentage(@currently.cloudCover * 100, precision: 0)
