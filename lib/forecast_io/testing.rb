@@ -5,7 +5,7 @@ module ForecastIO
     @@fake = {}
 
     def forecast(latitude, longitude, options = {})
-      Hashie::Mash.new(currently: @@fake)
+      Hashie::Mash.new(currently: @@fake, hourly: { data: 48.times.map { @@fake }})
     end
 
     def method_missing(name, value)
