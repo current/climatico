@@ -7,4 +7,7 @@
     = csrf_meta_tags
 
   %body
-    = yield
+    %div.rails-rumble-vote
+      = link_to image_tag('rails-rumble-badge-2015.png', alt: 'Vote for us!'), 'http://railsrumble.com/entries/111-climatico', target: '_blank'
+    %header.site-header= image_tag 'logo.svg', alt: 'Climatico', class: 'logo'
+    %main.site-content= yield

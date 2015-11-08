@@ -1,2 +1,79 @@
 @import "normalize-rails"
 @import "bourbon"
+
+.rails-rumble-vote
+  position: absolute
+  right: 10px
+  top: 10px
+  z-index: 100
+
+  img
+    height: 45px
+
+.site-header
+  background-color: white
+  border-bottom: 1px solid black
+  padding: 20px 0 10px
+  text-align: center
+
+.logo
+  height: 30px
+
+.site-content
+  background-color: white
+  height: calc(100vh - 65px)
+  overflow: hidden
+  position: relative
+
+
+// Tips
+
+.tips
+
+  ul
+    list-style: none
+    margin: 0
+    padding: 0
+
+
+// Data
+
+.data-points
+  border-top: 1px solid black
+  bottom: 0
+  display: flex
+  justify-content: space-between
+  left: 0
+  margin: 0
+  padding: 0
+  position: absolute
+  right: 0
+
+.data-entry
+  list-style: none
+  padding: 20px 40px
+  width: 33.333333%
+
+  &:not(:last-child)
+    border-right: 1px solid lightgray
+
+.data-title
+  font-size: .9rem
+  color: gray
+
+.data-value
+  font-size: 1.6rem
+
+
+// Loading
+
+.data-container
+  text-align: center
+
+.spinner
+  animation: pulse .5s infinite
+  margin: 50px 0
+
+@keyframes pulse
+  100%
+    transform: scale(1.3)

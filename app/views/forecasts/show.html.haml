@@ -1,15 +1,16 @@
-%h1 Dicas
+%div.tips
+  %h1 Today it's a good idea to take with you…
+  %ul#tips
+    - @recomendation.tips.each do |tip|
+      %li= image_tag "#{tip}.png", alt: "#{tip.capitalize}"
 
-%ul#tips
-  - @recomendation.tips.each do |tip|
-    %li= tip
-
-%dl
-  %dt Temperatura atual (C)
-  %dd= @currently.apparentTemperature
-
-  %dt Probabilidade de chuva
-  %dd= number_to_percentage(@currently.precipProbability * 100, precision: 0)
-
-  %dt Nuvens no céu
-  %dd= number_to_percentage(@currently.cloudCover * 100, precision: 0)
+%ul.data-points
+  %li.data-entry
+    %div.data-title Temperature
+    %div.data-value #{@currently.apparentTemperature} °C
+  %li.data-entry
+    %div.data-title Rain Chance
+    %div.data-value= number_to_percentage(@currently.precipProbability * 100, precision: 0)
+  %li.data-entry
+    %div.data-title Cloud Coverage
+    %div.data-value= number_to_percentage(@currently.cloudCover * 100, precision: 0)
