@@ -1,0 +1,16 @@
+{
+  "name": "r15-team-111",
+  "scripts": {},
+  "env": {
+    "FORECAST_IO": {
+      "required": true
+    }
+  },
+  "addons": [
+    "librato",
+    "papertrail",
+    "heroku-postgresql",
+    "heroku-redis",
+    "semaphore"
+  ]
+}
