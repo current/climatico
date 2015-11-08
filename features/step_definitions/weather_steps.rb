@@ -18,3 +18,7 @@ end
 Então(/^a recomendação é de roupas normais$/) do
   expect(page).to have_content('Roupas normais')
 end
+
+Então(/^a recomendação é de levar guarda\-chuva$/) do
+  expect(page).to have_content('Levar guarda-chuva')
+end
