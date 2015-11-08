@@ -1,24 +1,23 @@
 Dado(/^que está (\d+) graus centigrados$/) do |value|
-  ForecastIO.temperature = value
+  ForecastIO.apparentTemperature = value.to_f
 end
 
 Dado(/^que está com (\d+)% de probabilidade de chuva$/) do |value|
-  ForecastIO.precipProbability = value
+  ForecastIO.precipProbability = value.to_f / 100
 end
 
-Dado(/^que está com (\d+) km de vento$/) do |value|
-  ForecastIO.windSpeed = value
+Dado(/^que está com (\d+)% de nuvens$/) do |value|
+  ForecastIO.cloudCover= value.to_f / 100
 end
 
 Quando(/^eu acesso o aplicativo$/) do
   visit '/'
-  page.save_screenshot 'foo.png'
 end
 
 Então(/^a recomendação é de roupas normais$/) do
-  expect(page).to have_content('Roupas normais')
+  expect(page).to_not have_selector('ul#tips li')
 end
 
 Então(/^a recomendação é de levar guarda\-chuva$/) do
-  expect(page).to have_content('Levar guarda-chuva')
+  expect(page).to have_content('umbrella')
 end
