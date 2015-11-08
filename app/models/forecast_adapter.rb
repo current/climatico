@@ -1,6 +1,8 @@
 class ForecastAdapter
   attr_reader :api_call
 
+  METERS_PER_SECOND_TO_KM_TO_HOUR = 3.6
+
   def initialize(api_call)
     @api_call = api_call
   end
@@ -23,5 +25,9 @@ class ForecastAdapter
 
   def clear_sky?
     api_call.cloudCover < 0.4
+  end
+
+  def windy?
+    api_call.windSpeed * METERS_PER_SECOND_TO_KM_TO_HOUR > 7
   end
 end

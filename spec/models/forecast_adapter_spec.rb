@@ -6,7 +6,8 @@ describe ForecastAdapter do
     double(
       precipProbability: 0.26,
       apparentTemperature: 9.99,
-      cloudCover: 0.3
+      cloudCover: 0.3,
+      windSpeed: 2
     )
   }
   let(:adapter)  { ForecastAdapter.new(api_call) }
@@ -31,5 +32,14 @@ describe ForecastAdapter do
 
   it 'has clear sky' do
     expect(adapter).to be_clear_sky
+  end
+
+  it 'is windy' do
+    expect(adapter).to be_windy
+  end
+
+  it 'is not windy' do
+    expect(api_call).to receive(:windSpeed) { 1.94444 }
+    expect(adapter).to_not be_windy
   end
 end
