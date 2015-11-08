@@ -1,15 +1,14 @@
-# $ ->
-#   x = $('#location')
-# 
-#   getLocation = ->
-#     console.log(navigator.geolocation)
-#     if navigator.geolocation
-#       navigator.geolocation.getCurrentPosition(showPosition)
-#     else
-#       x.html("Geolocation is not supported")
-# 
-#   showPosition = (position) ->
-#     console.log("Position: ", position)
-#     x.html("Lat: " + position.coords.latitude + " <br /> Long: " + position.coords.longitude)
-# 
-#   getLocation()
+$(document).on 'page:change', ->
+
+  if navigator.geolocation
+    navigator.geolocation.getCurrentPosition (pos) ->
+      coord = pos.coords
+
+      $.ajax
+        url: '/forecast'
+        data: coord
+      .success (data) ->
+        $('#loading').html(data)
+
+  else
+    console.log 'Geolocation is not supported'

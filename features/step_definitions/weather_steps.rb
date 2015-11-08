@@ -12,8 +12,9 @@ end
 
 Quando(/^eu acesso o aplicativo$/) do
   visit '/'
+  page.save_screenshot 'foo.png'
 end
 
 Então(/^a recomendação é de roupas normais$/) do
-  expect(page).to have_content('roupas normais')
+  expect(page).to have_content('Roupas normais')
 end
