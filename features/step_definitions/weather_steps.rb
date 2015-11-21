@@ -19,5 +19,5 @@ Então(/^a recomendação é de roupas normais$/) do
 end
 
 Então(/^a recomendação é de levar guarda\-chuva$/) do
-  expect(page).to have_content('umbrella')
+  expect(page).to have_selector('[src$=umbrella\.png]')
 end
